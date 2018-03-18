@@ -1,0 +1,45 @@
+
+body {
+    padding-top: 80px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.authorsInfo {
+    width: 320px;
+}
+
+.email {
+    color: cadetblue;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    font-size: 24px;
+}
+
+.errorNumbers {
+    color: red;
+    text-align: center
+}
+
+.errorNumbers p {
+    color: black;
+}
+
+.headings h4 {
+    color: darkgray;
+}
+
+.title p {
+    color: dimgrey;
+}
+
+.title span {
+    font-size: 16px;
+}
