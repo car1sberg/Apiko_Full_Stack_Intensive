@@ -1,7 +1,8 @@
 import React from 'react';
 import data from '../json/posts';
 import Post from './post';
-import AddPostBtn from './add-post-btn';
+import DisplayPostsBtn from './display-posts-btn';
+import '../styles/post-list.css';
 
 
 class PostList extends React.Component {
@@ -24,7 +25,7 @@ class PostList extends React.Component {
                 <h4>Current amount: ({posts.length})</h4>
                 <Post arr={posts}/>
                 {data.length - currentLength >= 10 &&
-                    <AddPostBtn onClick={this.handleClick} />
+                    <DisplayPostsBtn onClick={this.handleClick} />
                 }
             </div>
         )

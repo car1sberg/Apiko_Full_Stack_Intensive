@@ -1,0 +1,14 @@
+
+.ulWidth {
+    width: 600px;
+  }
+  
+  .postsBlock {
+    display: flex;
+    justify-content: center;
+  }
+
+.item {
+    margin: 10px;
+    box-shadow: 0 4px 8px #5b5b5b;
+}

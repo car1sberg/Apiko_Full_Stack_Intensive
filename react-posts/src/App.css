@@ -6,37 +6,3 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.navbar {
-  background-color: #343a40;
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-
-.item {
-  margin: 10px;
-  box-shadow: 0 4px 8px #5b5b5b;
-
-}
-
-.ulWidth {
-  width: 600px;
-}
-
-.addPostsBtn {
-  width: 350px;
-}
-
-.posts h4 {
-  text-align: center;
-}
-
-.postsBlock {
-  display: flex;
-  justify-content: center;
-}
