@@ -7,7 +7,11 @@ function Post(props) {
     return (
         <div className="postsBlock">
             <ul className="list-group ulWidth">
-                {posts.map(item => <li className="list-group-item item" key={item.id}>{item.title}</li>)}
+                {posts.map(item => 
+                    <li className="list-group-item item" 
+                        key={item.id}
+                        >{item.title}
+                    </li>)}
             </ul>
         </div>
     )

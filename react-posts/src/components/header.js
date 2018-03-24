@@ -6,7 +6,6 @@ function Header() {
     return (
         <nav className="navbar navbar-dark fixed-top">
             <div className="brand">Posts</div>
-            {/* <a href="#" className="navbar-brand">Posts</a> */}
         </nav>
     )
 }
