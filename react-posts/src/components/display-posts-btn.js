@@ -9,7 +9,7 @@ function DisplayPostsBtn(props) {
         <div className="button">
             <button 
                 className="btn btn-outline-dark addPostsBtn" 
-                onClick={props.onClick}
+                onClick={props.displayMore}
                 >Display more posts
             </button>
         </div>
@@ -17,7 +17,7 @@ function DisplayPostsBtn(props) {
 }
 
 DisplayPostsBtn.propTypes = {
-    onClick: PropTypes.func
+    displayMore: PropTypes.func
 }
 
 export default DisplayPostsBtn;

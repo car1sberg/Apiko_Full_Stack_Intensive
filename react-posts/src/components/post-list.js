@@ -25,7 +25,7 @@ class PostList extends React.Component {
                 <h4>Current amount: ({posts.length})</h4>
                 <Post arr={posts}/>
                 {data.length - currentLength >= 10 &&
-                    <DisplayPostsBtn onClick={this.handleClick} />
+                    <DisplayPostsBtn displayMore={this.handleClick} />
                 }
             </div>
         )
