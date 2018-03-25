@@ -22,7 +22,7 @@ class PostList extends React.Component {
         const posts = data.slice(0, currentLength);
         return (
             <div className="posts">
-                <h4>Current amount: ({posts.length})</h4>
+                <h4>Current amount: {posts.length}</h4>
                 <Post arr={posts} />
                 {data.length - currentLength >= 1 &&
                     <DisplayPostsBtn displayMore={this.handleClick} />
