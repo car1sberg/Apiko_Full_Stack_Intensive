@@ -1,4 +1,13 @@
 
-.posts h4 {
+.posts h4, .posts h6 {
     text-align: center;
   }
+
+.noResults-appear {
+  opacity: 0.01;
+}
+
+.noResults-appear.noResults-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}

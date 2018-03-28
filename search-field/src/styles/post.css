@@ -3,11 +3,11 @@
     width: 600px;
   }
   
-  .postsBlock {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
+.postsBlock {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
 
 .item {
     margin: 10px;
@@ -23,11 +23,20 @@
   transition: opacity .7s ease-in;
 }
 
-.postsOnload-appear {
+.postsIn-leave {
+  opacity: 1;
+}
+
+.postsIn-leave.postsIn-leave-active {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.postsIn-appear {
   opacity: 0.01;
 }
 
-.postsOnload-appear.postsOnload-appear-active {
+.postsIn-appear.postsIn-appear-active {
   opacity: 1;
   transition: opacity .7s ease-in;
 }
