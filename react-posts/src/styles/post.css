@@ -23,11 +23,11 @@
   transition: opacity .7s ease-in;
 }
 
-.postsOnload-appear {
+.postsIn-appear {
   opacity: 0.01;
 }
 
-.postsOnload-appear.postsOnload-appear-active {
+.postsIn-appear.postsIn-appear-active {
   opacity: 1;
   transition: opacity .7s ease-in;
 }
