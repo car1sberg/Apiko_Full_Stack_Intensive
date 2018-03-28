@@ -1,7 +1,16 @@
 
-.posts h4, .posts h6 {
+.posts h4, .posts h5 {
     text-align: center;
   }
+
+.searchBlock {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.searchBlock input {
+  width: 300px;
+}
 
 .noResults-appear {
   opacity: 0.01;

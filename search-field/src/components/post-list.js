@@ -1,6 +1,8 @@
 import React from 'react';
 import data from '../json/posts';
 import Post from './post';
+import NoItemsFound from './no-items-found';
+import SearchField from './search-field';
 import DisplayPostsBtn from './display-posts-btn';
 import { CSSTransitionGroup } from 'react-transition-group';
 import '../styles/post-list.css';
@@ -35,11 +37,12 @@ class PostList extends React.Component {
 
         return (
             <div className="posts">
-                <h4>Current amount: {filteredPosts.length}</h4>
-                <input type="text"
-                       value={this.state.searchingPosts}
-                       className="search-input" 
-                       onChange={this.handleSearchUpgrade} />
+                <div className="searchBlock form-group">
+                    <h4>Current amount: {filteredPosts.length}</h4>
+                    <SearchField 
+                        inputValue={this.state.searchingPosts} 
+                        upgView={this.handleSearchUpgrade} />
+                </div>
                 <Post arr={filteredPosts} />
                 
                 {filteredPosts.length === 0 &&
@@ -47,7 +50,7 @@ class PostList extends React.Component {
                         transitionName="noResults"
                         transitionAppear={true}
                         transitionAppearTimeout={1000}>
-                        <h6>No results</h6>
+                        <NoItemsFound />
                     </CSSTransitionGroup>
                 }
 
