@@ -33,7 +33,8 @@ class PostList extends React.Component {
         const currentLength = this.state.counter;
         const posts = data.slice(0, currentLength);
         const filteredPosts = posts.filter((post) => 
-            post.title.toLowerCase().indexOf(this.state.searchingPosts.toLocaleLowerCase()) !== -1);
+            // post.title.toLowerCase().indexOf(this.state.searchingPosts.toLowerCase()) !== -1);
+            post.title.toLowerCase().includes(this.state.searchingPosts.toLowerCase()));
 
         return (
             <div className="posts">
