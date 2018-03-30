@@ -1,12 +1,16 @@
 import React from 'react';
-import data from '../json/posts';
 import Post from './post';
 import NoItemsFound from './no-items-found';
 import SearchField from './search-field';
 import DisplayPostsBtn from './display-posts-btn';
 import { CSSTransitionGroup } from 'react-transition-group';
+import Loading from './loader';
 import '../styles/post-list.css';
 
+const URL = 'https://jsonplaceholder.typicode.com/';
+
+const getData = (data) => 
+    fetch(URL + data).then(resp => resp.json());
 
 class PostList extends React.Component {
     constructor(props) {
@@ -14,7 +18,9 @@ class PostList extends React.Component {
 
         this.state = {
             counter: 10,
-            searchingPosts: ''
+            searchingPosts: '',
+            postsArr: [],
+            isLoading: true
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -29,12 +35,26 @@ class PostList extends React.Component {
         this.setState({counter: this.state.counter + 10});
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            getData('posts').then((posts, loading) => this.setState({
+                postsArr: posts,
+                isLoading: false
+            }));
+        }, 2000)
+        
+    }
+
     render() {
+        const {postsArr, isLoading} = this.state;
         const currentLength = this.state.counter;
-        const posts = data.slice(0, currentLength);
+        const posts = postsArr.slice(0, currentLength);
         const filteredPosts = posts.filter((post) => 
-            // post.title.toLowerCase().indexOf(this.state.searchingPosts.toLowerCase()) !== -1);
             post.title.toLowerCase().includes(this.state.searchingPosts.toLowerCase()));
+
+        if (isLoading) {
+            return <Loading />
+        }
 
         return (
             <div className="posts">
@@ -50,12 +70,14 @@ class PostList extends React.Component {
                     <CSSTransitionGroup
                         transitionName="noResults"
                         transitionAppear={true}
-                        transitionAppearTimeout={1000}>
+                        transitionEnterTimeout={800}
+                        transitionLeaveTimeout={100}
+                        transitionAppearTimeout={800}>
                         <NoItemsFound />
                     </CSSTransitionGroup>
                 }
 
-                {data.length - currentLength >= 1 &&
+                {postsArr.length - currentLength >= 1 &&
                     <DisplayPostsBtn displayMore={this.handleClick} />
                 }
             </div>

@@ -8,6 +8,16 @@
   justify-content: space-evenly;
 }
 
+@media (max-width: 400px) {
+  .searchBlock {
+    display: block;
+  }
+
+  .searchBlock input {
+    margin: auto;
+  }
+}
+
 .searchBlock input {
   width: 300px;
 }
@@ -18,5 +28,23 @@
 
 .noResults-appear.noResults-appear-active {
   opacity: 1;
-  transition: opacity 1s ease-in;
+  transition: opacity .8s ease-in;
+}
+
+.noResults-enter {
+  opacity: 0.01;
+}
+
+.noResults-enter.noResults-enter-active {
+  opacity: 1;
+  transition: opacity 0.8s ease-in;
+}
+
+.noResults-leave {
+  opacity: 1;
+}
+
+.noResults-leave.noResults-leave-active {
+  opacity: 0.01;
+  transition: opacity .1s ease-in;
 }
