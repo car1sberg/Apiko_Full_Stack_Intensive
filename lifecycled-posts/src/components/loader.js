@@ -2,12 +2,12 @@
 import React from 'react';
 import '../styles/loader.css';
 
-const Loading = () => {
+const Loader = () => {
     return (
         <div className="gif">
-            <img src={require("../images/loading.gif")} alt="Loading"/>
+            <img src={require("../images/loading.gif")} alt="Loader"/>
         </div>
     )
 }
 
-export default Loading;
+export default Loader;

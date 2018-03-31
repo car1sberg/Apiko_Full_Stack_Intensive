@@ -4,17 +4,17 @@ import NoItemsFound from './no-items-found';
 import SearchField from './search-field';
 import DisplayPostsBtn from './display-posts-btn';
 import { CSSTransitionGroup } from 'react-transition-group';
-import Loading from './loader';
+import Loader from './loader';
 import '../styles/post-list.css';
 
-const URL = 'https://jsonplaceholder.typicode.com/';
 
+const URL = 'https://jsonplaceholder.typicode.com/';
 const getData = (data) => 
     fetch(URL + data).then(resp => resp.json());
 
 class PostList extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             counter: 10,
@@ -23,7 +23,7 @@ class PostList extends React.Component {
             isLoading: true
         };
 
-        this.handleClick = this.handleClick.bind(this);
+        this.handleDisplayMore = this.handleDisplayMore.bind(this);
         this.handleSearchUpgrade = this.handleSearchUpgrade.bind(this);
     }
 
@@ -31,7 +31,7 @@ class PostList extends React.Component {
         this.setState({searchingPosts: event.target.value});
     }
 
-    handleClick() {
+    handleDisplayMore() {
         this.setState({counter: this.state.counter + 10});
     }
 
@@ -42,18 +42,23 @@ class PostList extends React.Component {
                 isLoading: false
             }));
         }, 2000)
-        
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return (
+            this.state.counter !== nextState.counter || 
+            this.state.counter === nextState.counter
+        )
     }
 
     render() {
-        const {postsArr, isLoading} = this.state;
-        const currentLength = this.state.counter;
-        const posts = postsArr.slice(0, currentLength);
+        const {postsArr, isLoading, counter} = this.state;
+        const posts = postsArr.slice(0, counter);
         const filteredPosts = posts.filter((post) => 
             post.title.toLowerCase().includes(this.state.searchingPosts.toLowerCase()));
 
         if (isLoading) {
-            return <Loading />
+            return <Loader />
         }
 
         return (
@@ -77,8 +82,8 @@ class PostList extends React.Component {
                     </CSSTransitionGroup>
                 }
 
-                {postsArr.length - currentLength >= 1 &&
-                    <DisplayPostsBtn displayMore={this.handleClick} />
+                {postsArr.length - counter >= 1 &&
+                    <DisplayPostsBtn displayMore={this.handleDisplayMore} />
                 }
             </div>
         )
