@@ -65,9 +65,7 @@ class PostList extends React.Component {
             <div className="posts">
                 <div className="searchBlock form-group">
                     <h4>Current amount: {filteredPosts.length}</h4>
-                    <SearchField 
-                        inputValue={this.state.searchingPosts} 
-                        upgView={this.handleSearchUpgrade} />
+                    <SearchField upgView={this.handleSearchUpgrade} />
                 </div>
                 <Post arr={filteredPosts} />
                 
@@ -78,6 +76,7 @@ class PostList extends React.Component {
                         transitionEnterTimeout={800}
                         transitionLeaveTimeout={100}
                         transitionAppearTimeout={800}>
+                        
                         <NoItemsFound />
                     </CSSTransitionGroup>
                 }
