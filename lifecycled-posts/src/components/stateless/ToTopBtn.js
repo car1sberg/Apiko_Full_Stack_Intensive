@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/to-top-btn.css';
+import '../../styles/ToTopBtn.css';
 import ScrollUpButton from "react-scroll-up-button";
 
 

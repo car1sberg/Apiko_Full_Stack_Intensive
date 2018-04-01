@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/post.css';
+import '../../styles/Post.css';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 function Post(props) {

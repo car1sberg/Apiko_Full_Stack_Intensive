@@ -1,7 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/display-posts-btn.css';
+import '../../styles/DisplayPostsBtn.css';
 
 
 function DisplayPostsBtn(props) {

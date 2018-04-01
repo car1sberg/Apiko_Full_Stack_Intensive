@@ -1,11 +1,11 @@
 import React from 'react';
-import Post from './post';
-import NoItemsFound from './no-items-found';
-import SearchField from './search-field';
-import DisplayPostsBtn from './display-posts-btn';
+import Post from './stateless/Post';
+import NoItemsFound from './stateless/NoItemsFound';
+import SearchField from './stateless/SearchField';
+import DisplayPostsBtn from './stateless/DisplayPostsBtn';
 import { CSSTransitionGroup } from 'react-transition-group';
-import Loader from './loader';
-import '../styles/post-list.css';
+import Loader from './stateless/Loader';
+import '../styles/PostList.css';
 
 
 const URL = 'https://jsonplaceholder.typicode.com/';
@@ -18,7 +18,7 @@ class PostList extends React.Component {
 
         this.state = {
             counter: 10,
-            searchingPosts: '',
+            inputValue: '',
             postsArr: [],
             isLoading: true
         };
@@ -28,7 +28,7 @@ class PostList extends React.Component {
     }
 
     handleSearchUpgrade(event) {
-        this.setState({searchingPosts: event.target.value});
+        this.setState({inputValue: event.target.value});
     }
 
     handleDisplayMore() {
@@ -52,10 +52,10 @@ class PostList extends React.Component {
     }
 
     render() {
-        const {postsArr, isLoading, counter} = this.state;
+        const {postsArr, isLoading, counter, inputValue} = this.state;
         const posts = postsArr.slice(0, counter);
         const filteredPosts = posts.filter((post) => 
-            post.title.toLowerCase().includes(this.state.searchingPosts.toLowerCase()));
+            post.title.toLowerCase().includes(inputValue.toLowerCase()));
 
         if (isLoading) {
             return <Loader />
@@ -76,7 +76,7 @@ class PostList extends React.Component {
                         transitionEnterTimeout={800}
                         transitionLeaveTimeout={100}
                         transitionAppearTimeout={800}>
-                        
+
                         <NoItemsFound />
                     </CSSTransitionGroup>
                 }
