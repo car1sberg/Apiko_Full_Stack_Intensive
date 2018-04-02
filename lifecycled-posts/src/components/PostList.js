@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './stateless/Post';
+import Post from './Post';
 import NoItemsFound from './stateless/NoItemsFound';
 import SearchField from './stateless/SearchField';
 import DisplayPostsBtn from './stateless/DisplayPostsBtn';
@@ -42,13 +42,12 @@ class PostList extends React.Component {
                 isLoading: false
             }));
         }, 2000)
-    }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return (
-            this.state.counter !== nextState.counter || 
-            this.state.counter === nextState.counter
-        )
+        setInterval(() => {
+            getData('posts').then((posts) => this.setState({
+                postsArr: posts,
+            }));
+        }, 20000)
     }
 
     render() {
