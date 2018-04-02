@@ -37,7 +37,7 @@ class PostList extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-            getData('posts').then((posts, loading) => this.setState({
+            getData('posts').then((posts) => this.setState({
                 postsArr: posts,
                 isLoading: false
             }));
